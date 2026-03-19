@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 async def get_roster(url):
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
+        browser = await p.chromium.launch(headless=True)
         page = await browser.new_page(viewport={"width": 1600, "height": 1000})
 
         await page.goto(url, wait_until="domcontentloaded", timeout=60000)
